@@ -1,0 +1,25 @@
+{
+  "name": "Freedom Travel OS P",
+  "short_name": "FTOS P",
+  "description": "A flexible offline-first travel companion for planning flights, hotels, budgets, packing, itineraries and memories.",
+  "id": "/FreedomTravelOS-P/",
+  "start_url": "/FreedomTravelOS-P/",
+  "scope": "/FreedomTravelOS-P/",
+  "display": "standalone",
+  "display_override": ["standalone"],
+  "background_color": "#07162c",
+  "theme_color": "#07162c",
+  "orientation": "portrait-primary",
+  "categories": ["travel", "lifestyle", "utilities"],
+  "icons": [
+    {"src":"/FreedomTravelOS-P/icons/icon-192.png","sizes":"192x192","type":"image/png","purpose":"any"},
+    {"src":"/FreedomTravelOS-P/icons/icon-512.png","sizes":"512x512","type":"image/png","purpose":"any"},
+    {"src":"/FreedomTravelOS-P/icons/icon-maskable-192.png","sizes":"192x192","type":"image/png","purpose":"maskable"},
+    {"src":"/FreedomTravelOS-P/icons/icon-maskable-512.png","sizes":"512x512","type":"image/png","purpose":"maskable"}
+  ],
+  "shortcuts": [
+    {"name":"Dashboard","short_name":"Home","url":"/FreedomTravelOS-P/","icons":[{"src":"/FreedomTravelOS-P/icons/icon-192.png","sizes":"192x192"}]},
+    {"name":"Flight","short_name":"Flight","url":"/FreedomTravelOS-P/?page=flight","icons":[{"src":"/FreedomTravelOS-P/icons/icon-192.png","sizes":"192x192"}]},
+    {"name":"Budget","short_name":"Budget","url":"/FreedomTravelOS-P/?page=budget","icons":[{"src":"/FreedomTravelOS-P/icons/icon-192.png","sizes":"192x192"}]}
+  ]
+}

@@ -1,0 +1,8 @@
+Freedom Travel OS v1.5 package
+- Complete React/Vite source
+- Production dist build
+- Correct simple Orbit QR splash assets
+- Premium QR Home Screen/PWA icon pack
+- GitHub Pages/PWA configuration
+- Updated developer and release documentation
+- Windows development/build helpers
