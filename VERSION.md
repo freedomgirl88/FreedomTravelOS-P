@@ -1,4 +1,4 @@
 # Freedom Travel OS P
 
-Version: 0.10.0 RC1
-Release: Public Quality
+Version: 0.11.0
+Release: Travel Journal & Memories Pro

@@ -1,6 +1,17 @@
-export const APP_VERSION = "0.10.0";
+export const APP_VERSION = "0.11.0";
 
 export const RELEASES = [
+  {
+    version: "0.11.0",
+    date: "2026-08-04",
+    title: "Travel Journal & Memories Pro",
+    highlights: [
+      "Daily journal entries with ratings and locations",
+      "Edit, delete and favourite trip memories",
+      "Trip highlights filter and recap statistics",
+      "Improved photo journal layout and mobile editor"
+    ]
+  },
   {
     version: "0.10.0",
     date: "2026-08-04",
