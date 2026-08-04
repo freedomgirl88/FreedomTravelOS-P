@@ -1,0 +1,10 @@
+{
+  "version": "0.7.0",
+  "releasedAt": "2026-08-04",
+  "notes": [
+    "Reliable live exchange rates",
+    "Manual rate mode",
+    "No misleading 1:1 fallback"
+  ],
+  "name": "Flight Status & Countdown"
+}
