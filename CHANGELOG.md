@@ -140,3 +140,8 @@
 - Preserved separate splash and installed-PWA brand identities.
 - Retained the corrected Card, Cash and Transport Card expense persistence.
 - Updated version branding and PWA cache.
+
+
+## v0.9.0
+- Explore Pro reservation and travel-time fields.
+- Smart Packing mobile form alignment and touch-target polish.

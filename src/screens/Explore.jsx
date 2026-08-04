@@ -10,7 +10,7 @@ import {
 
 const emptyPlace = {
   name: "", category: "Attraction", time: "10:00", duration: "60 min",
-  station: "", exit: "", note: "", priority: "Nice to Visit"
+  station: "", exit: "", note: "", priority: "Nice to Visit", travelTime: "", reservation: "", bookingRef: ""
 };
 
 function getTimeBand(time) {
@@ -64,6 +64,11 @@ function PlaceForm({ initial, onSave, onDelete }) {
     </div>
     <label className="field"><span>Nearest station / location</span><input value={form.station} onChange={(e) => set("station", e.target.value)} placeholder="e.g. Central Station" /></label>
     <label className="field"><span>Exit / address</span><input value={form.exit} onChange={(e) => set("exit", e.target.value)} placeholder="e.g. Exit 3 or full address" /></label>
+    <div className="explore-form-grid">
+      <label className="field"><span>Travel time from previous stop</span><input value={form.travelTime || ""} onChange={(e) => set("travelTime", e.target.value)} placeholder="e.g. 20 min by train" /></label>
+      <label className="field"><span>Reservation time</span><input type="time" value={form.reservation || ""} onChange={(e) => set("reservation", e.target.value)} /></label>
+    </div>
+    <label className="field"><span>Booking reference</span><input value={form.bookingRef || ""} onChange={(e) => set("bookingRef", e.target.value)} placeholder="Optional confirmation number" /></label>
     <label className="field"><span>Notes</span><textarea value={form.note} onChange={(e) => set("note", e.target.value)} placeholder="Food to try, photo ideas, booking details..." rows="3" /></label>
     <button className="primary-wide" type="submit">Save place</button>
     {onDelete && <button className="danger-button" type="button" onClick={onDelete}><Trash2 size={16}/> Delete place</button>}
@@ -122,7 +127,7 @@ export default function Explore({ store }) {
   const categories = ["All", "Must Visit", "Favourites", ...new Set(activeDay.places.map((place) => place.category).filter(Boolean))];
   const filteredPlaces = useMemo(() => activeDay.places.filter((place) => {
     const q = query.trim().toLowerCase();
-    const matchesQuery = !q || [place.name, place.category, place.priority, place.station, place.exit, place.note].join(" ").toLowerCase().includes(q);
+    const matchesQuery = !q || [place.name, place.category, place.priority, place.station, place.exit, place.note, place.travelTime, place.bookingRef].join(" ").toLowerCase().includes(q);
     const matchesFilter = filter === "All" || (filter === "Must Visit" ? place.priority === "Must Visit" : filter === "Favourites" ? favourites.includes(place.id) : place.category === filter);
     return matchesQuery && matchesFilter;
   }), [activeDay, filter, favourites, query]);
@@ -188,6 +193,7 @@ export default function Explore({ store }) {
             <div className="place-title"><strong>{place.name}</strong><div className="place-title-actions"><button aria-label="Edit place" className="heart edit-place-button" onClick={() => setPlaceEditor({ mode: "edit", data: place })}><Pencil size={17}/></button><button aria-label="Favourite" className={isFavourite ? "heart active" : "heart"} onClick={() => { toggleFavourite(place.id); window.ftosToast?.(isFavourite ? "Removed from favourites" : "Added to favourites"); }}><Heart size={18} fill={isFavourite ? "currentColor" : "none"} /></button></div></div>
             <div className="chips"><span>{place.category}</span><span>{place.priority}</span>{isVisited && <span>Visited</span>}</div>
             <div className="place-meta-grid"><p><MapPin size={14} /> {place.station || "Location not added"}{place.exit ? ` · ${place.exit}` : ""}</p><p><Clock3 size={14} /> {place.duration || "Flexible"}</p></div>
+            {(place.travelTime || place.reservation || place.bookingRef) && <div className="explore-booking-strip">{place.travelTime && <span>Route: {place.travelTime}</span>}{place.reservation && <span>Reserved {place.reservation}</span>}{place.bookingRef && <span>Ref: {place.bookingRef}</span>}</div>}
             {place.note && <small>{place.note}</small>}
             <div className="actions place-actions"><button onClick={() => { window.open(`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent([place.name, place.station, place.exit].filter(Boolean).join(" "))}`, "_blank"); window.ftosToast?.("Opening map"); }}>Map</button><button onClick={() => { navigator.clipboard?.writeText(place.name); window.ftosToast?.("Place copied"); }}>Copy</button><button onClick={() => { toggleVisited(place.id); window.ftosToast?.(isVisited ? "Marked as not visited" : "Marked as visited"); }}><CheckCircle2 size={15} /> {isVisited ? "Done" : "Mark"}</button><span className="reorder-actions"><button aria-label="Move up" disabled={index <= 0} onClick={() => moveExplorePlace(activeDay.day, place.id, -1)}><ChevronUp size={16}/></button><button aria-label="Move down" disabled={index >= activeDay.places.length - 1} onClick={() => moveExplorePlace(activeDay.day, place.id, 1)}><ChevronDown size={16}/></button></span></div>
           </div>

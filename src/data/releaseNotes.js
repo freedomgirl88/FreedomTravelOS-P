@@ -1,6 +1,17 @@
-export const APP_VERSION = "0.8.0";
+export const APP_VERSION = "0.9.0";
 
 export const RELEASES = [
+  {
+    version: "0.9.0",
+    date: "2026-08-04",
+    title: "Explore Pro & UI Polish",
+    highlights: [
+      "Fixed Smart Packing add-item alignment on mobile",
+      "Touch-friendly Essential and Need to buy controls",
+      "Travel-time and reservation details for itinerary places",
+      "Booking references shown directly in Explore"
+    ]
+  },
   {
     version: "0.8.0",
     date: "2026-08-04",

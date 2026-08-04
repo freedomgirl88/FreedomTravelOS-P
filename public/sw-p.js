@@ -1,4 +1,4 @@
-const CACHE_NAME = 'ftos-p-v0.8.0';
+const CACHE_NAME = 'ftos-p-v0.9.0';
 const APP_ROOT = '/';
 
 self.addEventListener('install', event => {
