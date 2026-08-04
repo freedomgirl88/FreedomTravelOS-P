@@ -1,0 +1,11 @@
+{
+  "version": "0.8.0",
+  "releasedAt": "2026-08-04",
+  "notes": [
+    "Packing templates",
+    "Quantity and weight tracking",
+    "Shopping and missing-item filters",
+    "Category progress and duplicate protection"
+  ],
+  "name": "Smart Packing 2.0"
+}

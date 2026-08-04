@@ -1,0 +1,1 @@
+export default function ProgressRing({value,label}){return <div className="ring" style={{"--value":`${value}%`}}><div><strong>{value}%</strong><span>{label}</span></div></div>}
